@@ -1,0 +1,49 @@
+<!-- landing.html -->
+{% extends "base.html" %}
+
+{% block title %}Welcome to Changa{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION -->
+<section class="min-h-screen bg-gradient-to-b from-green-50 to-white flex flex-col justify-center items-center text-center px-4">
+  <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Changa</h1>
+  <p class="text-xl md:text-2xl mb-6 max-w-xl">
+    Empowering Kenyan Chamas with smart savings, loans, and collaboration tools.
+  </p>
+  <div class="flex flex-col md:flex-row gap-4">
+    <a href="{% url 'signup' %}" class="bg-green-600 text-white px-6 py-3 rounded-xl text-lg hover:bg-green-700 transition">
+      Create Account
+    </a>
+    <a href="{% url 'login' %}" class="border border-green-600 text-green-600 px-6 py-3 rounded-xl text-lg hover:bg-green-50 transition">
+      Login
+    </a>
+  </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-semibold text-center mb-12">Why Use Changa?</h2>
+    <div class="grid md:grid-cols-3 gap-10 text-center">
+      <div class="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+        <h3 class="text-xl font-bold mb-2">Manage Chamas Easily</h3>
+        <p class="text-sm text-gray-600">
+          Track contributions, set goals, assign roles, and manage your chama with ease.
+        </p>
+      </div>
+      <div class="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+        <h3 class="text-xl font-bold mb-2">Loan Requests & Voting</h3>
+        <p class="text-sm text-gray-600">
+          Request loans, track repayments, and vote on decisions in one place.
+        </p>
+      </div>
+      <div class="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+        <h3 class="text-xl font-bold mb-2">M-Pesa & SMS Integrated</h3>
+        <p class="text-sm text-gray-600">
+          Collect savings via M-Pesa and stay updated with SMS alerts.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

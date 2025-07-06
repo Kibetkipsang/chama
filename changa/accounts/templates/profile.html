@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+{% block title %}My Profile | {{ site_name }}{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto my-8 md:my-12 px-4 sm:px-6 lg:px-8">
+  <div class="bg-white dark:bg-gray-800 shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl border border-gray-100 dark:border-gray-700">
+    <!-- Profile Header with Gradient -->
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-white">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold tracking-tight">My Profile</h1>
+          <p class="text-blue-100 mt-1 text-sm">Manage your account settings and personal information</p>
+        </div>
+        <span class="mt-2 sm:mt-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-sm">
+          {% if user.is_staff %}Administrator{% elif user.is_superuser %}Superuser{% else %}Member{% endif %}
+        </span>
+      </div>
+    </div>
+
+    <!-- Profile Content -->
+    <div class="p-6 md:p-8">
+      <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+        <!-- Profile Picture with Upload Functionality -->
+        <div class="relative group shrink-0">
+          <div class="relative">
+            <img src="{{ user.profile.photo.url }}" 
+                 class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white dark:border-gray-700 shadow-lg object-cover transition-transform duration-300 group-hover:scale-105" 
+                 alt="{{ user.get_full_name }}'s profile photo"
+                 width="160"
+                 height="160">
+            <div class="absolute inset-0 rounded-full flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
+              <label for="photo-upload" class="flex flex-col items-center">
+                <i class="bi bi-camera text-white text-2xl mb-1"></i>
+                <span class="text-white text-sm font-medium">Update Photo</span>
+              </label>
+              <input id="photo-upload" type="file" accept="image/*" class="hidden">
+            </div>
+          </div>
+          <div class="text-center mt-3 text-sm text-gray-500 dark:text-gray-400">
+            <p>JPEG or PNG, 5MB max</p>
+          </div>
+        </div>
+
+        <!-- Profile Details -->
+        <div class="flex-1 space-y-6">
+          <!-- Personal Info Section -->
+          <div class="space-y-3">
+            <h2 class="text-xl md:text-2xl font-semibold text-gray-800 dark:text-white flex items-center">
+              {{ user.get_full_name }}
+              {% if user.profile.verified %}
+              <span class="ml-2 bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300 flex items-center">
+                <i class="bi bi-check-circle-fill mr-1"></i> Verified
+              </span>
+              {% endif %}
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300">{{ user.profile.bio|default:"No bio added yet. Tell others about yourself!" }}</p>
+          </div>
+
+          <!-- Detail Cards Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Username Card -->
+            <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg border border-gray-100 dark:border-gray-600 hover:border-gray-200 dark:hover:border-gray-500 transition-colors">
+              <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Username</p>
+              <p class="text-gray-800 dark:text-gray-100 font-medium flex items-center">
+                {{ user.username }}
+                <button class="ml-2 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Copy username">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </p>
+            </div>
+            
+            <!-- Email Card -->
+            <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg border border-gray-100 dark:border-gray-600 hover:border-gray-200 dark:hover:border-gray-500 transition-colors">
+              <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Email Address</p>
+              <p class="text-gray-800 dark:text-gray-100 font-medium flex items-center">
+                {{ user.email }}
+                {% if user.email_confirmed %}
+                <span class="ml-2 bg-green-100 text-green-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Verified</span>
+                {% else %}
+                <span class="ml-2 bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Unverified</span>
+                {% endif %}
+              </p>
+            </div>
+            
+            <!-- Contact Card -->
+            <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg border border-gray-100 dark:border-gray-600 hover:border-gray-200 dark:hover:border-gray-500 transition-colors">
+              <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Contact Information</p>
+              <div class="space-y-1">
+                <p class="text-gray-800 dark:text-gray-100 font-medium">
+                  <i class="bi bi-telephone mr-2 text-gray-500"></i>{{ user.profile.phone|default:"Not provided" }}
+                </p>
+                {% if user.profile.location %}
+                <p class="text-gray-800 dark:text-gray-100 font-medium">
+                  <i class="bi bi-geo-alt mr-2 text-gray-500"></i>{{ user.profile.location }}
+                </p>
+                {% endif %}
+              </div>
+            </div>
+            
+            <!-- Account Card -->
+            <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg border border-gray-100 dark:border-gray-600 hover:border-gray-200 dark:hover:border-gray-500 transition-colors">
+              <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Account Details</p>
+              <div class="space-y-1">
+                <p class="text-gray-800 dark:text-gray-100 font-medium">
+                  <i class="bi bi-calendar-event mr-2 text-gray-500"></i>Joined {{ user.date_joined|date:"F Y" }}
+                </p>
+                <p class="text-gray-800 dark:text-gray-100 font-medium">
+                  <i class="bi bi-clock-history mr-2 text-gray-500"></i>Last login: {{ user.last_login|timesince }} ago
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex flex-wrap justify-between items-center">
+        <div class="text-sm text-gray-500 dark:text-gray-400">
+          <i class="bi bi-info-circle mr-1"></i> Last updated: {{ user.profile.updated_at|date:"M d, Y" }}
+        </div>
+        <div class="flex flex-wrap gap-3 mt-4 sm:mt-0">
+          <a href="#" 
+             class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-all duration-300 text-sm font-medium flex items-center shadow hover:shadow-md">
+            <i class="bi bi-pencil-square mr-2"></i> Edit Profile
+          </a>
+          <a href="#" 
+             class="px-4 py-2 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 rounded-lg transition-all duration-300 text-sm font-medium flex items-center dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-600">
+            <i class="bi bi-shield-lock mr-2"></i> Change Password
+          </a>
+          {% if user.is_staff %}
+          <a href="/admin/" 
+             class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all duration-300 text-sm font-medium flex items-center shadow hover:shadow-md">
+            <i class="bi bi-speedometer2 mr-2"></i> Admin Dashboard
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Additional Profile Sections -->
+  <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Social Connections -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow border border-gray-100 dark:border-gray-700 p-6">
+      <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
+        <i class="bi bi-people-fill mr-2 text-indigo-600"></i> Social Connections
+      </h3>
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="bg-blue-100 dark:bg-blue-900/50 p-2 rounded-lg mr-3">
+              <i class="bi bi-google text-blue-600 dark:text-blue-400"></i>
+            </div>
+            <span class="text-gray-700 dark:text-gray-300">Google</span>
+          </div>
+          <button class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline">Connect</button>
+        </div>
+        <!-- Add more social connections here -->
+      </div>
+    </div>
+
+    <!-- Account Security -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow border border-gray-100 dark:border-gray-700 p-6">
+      <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
+        <i class="bi bi-shield-check mr-2 text-green-600"></i> Security Status
+      </h3>
+      <ul class="space-y-3">
+        <li class="flex items-center">
+          <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+          <span class="text-gray-700 dark:text-gray-300">Password strength: <strong>Strong</strong></span>
+        </li>
+        <li class="flex items-center">
+          {% if user.email_confirmed %}
+          <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+          <span class="text-gray-700 dark:text-gray-300">Email verified</span>
+          {% else %}
+          <i class="bi bi-exclamation-circle-fill text-yellow-500 mr-2"></i>
+          <span class="text-gray-700 dark:text-gray-300">Email not verified</span>
+          {% endif %}
+        </li>
+        <li class="flex items-center">
+          <i class="bi bi-x-circle-fill text-gray-400 mr-2"></i>
+          <span class="text-gray-700 dark:text-gray-300">Two-factor authentication: <strong>Disabled</strong></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Photo upload preview
+  const photoUpload = document.getElementById('photo-upload');
+  if (photoUpload) {
+    photoUpload.addEventListener('change', function(e) {
+      if (e.target.files && e.target.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          document.querySelector('.relative.group img').src = event.target.result;
+        };
+        reader.readAsDataURL(e.target.files[0]);
+      }
+    });
+  }
+
+  // Copy username functionality
+  document.querySelectorAll('[aria-label="Copy username"]').forEach(button => {
+    button.addEventListener('click', function() {
+      navigator.clipboard.writeText('{{ user.username }}').then(() => {
+        const icon = this.querySelector('i');
+        icon.classList.remove('bi-clipboard');
+        icon.classList.add('bi-check');
+        setTimeout(() => {
+          icon.classList.remove('bi-check');
+          icon.classList.add('bi-clipboard');
+        }, 2000);
+      });
+    });
+  });
+});
+</script>
+{% endblock %}
