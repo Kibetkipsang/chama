@@ -1,25 +1,39 @@
-<!-- landing.html -->
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Welcome to Changa{% endblock %}
 
 {% block content %}
 <!-- HERO SECTION -->
-<section class="min-h-screen bg-gradient-to-b from-green-100 via-white to-white flex items-center justify-center text-center px-4">
-  <div class="max-w-3xl">
-    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
-      Manage Your Chama Smarter with <span class="text-green-600">Changa</span>
-    </h1>
-    <p class="text-lg md:text-2xl text-gray-700 mb-10">
-      A powerful platform for savings, loans, meetings, and M-Pesa-powered chama management.
-    </p>
-    <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <a href="{% url 'signup' %}" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl text-lg font-semibold shadow-md transition">
-        Get Started
-      </a>
-      <a href="{% url 'login' %}" class="border border-green-600 text-green-600 px-6 py-3 rounded-xl text-lg font-semibold hover:bg-green-50 transition shadow-sm">
-        Log In
-      </a>
+<section class="min-h-screen flex items-center justify-center px-4 bg-gradient-to-b from-green-50 to-white">
+  <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center py-12">
+    <!-- Left Text - Centered -->
+    <div class="text-center md:text-left space-y-6 mx-auto ml-4">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight animate-fadeIn">
+        Manage Your Chama Smarter with <span class="text-green-600">Changa</span>
+      </h1>
+      <p class="text-lg md:text-xl lg:text-2xl text-gray-700 mb-10 animate-fadeIn animate-delay-100 max-w-lg mx-auto md:mx-0">
+        A powerful platform for savings, loans, meetings, and M-Pesa-powered chama management.
+      </p>
+      <div class="flex flex-col sm:flex-row  gap-4 animate-fadeIn animate-delay-200">
+        <a href="{% url 'signup' %}" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          Get Started
+        </a>
+        <a href="{% url 'login' %}" class="border-2 border-green-600 text-green-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-green-50 transition-all duration-300 shadow-sm hover:shadow-md">
+          Log In
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Image - Larger with fade effect -->
+    <div class="flex justify-center md:justify-end relative mr-4">
+      <div class="relative w-full max-w-lg">
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent z-10 pointer-events-none"></div>
+        <img src="{% static 'images/hero-chama.jpg' %}" alt="Chama Illustration" 
+             class="w-full rounded-2xl shadow-2xl transform transition-all duration-1000 hover:scale-105">
+        <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-green-200 rounded-2xl -z-10 opacity-30 animate-pulse-slow"></div>
+        <div class="absolute -top-4 -right-4 w-24 h-24 bg-green-100 rounded-full -z-10 opacity-30 animate-pulse-slower"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -27,72 +41,214 @@
 <!-- FEATURES SECTION -->
 <section class="py-24 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-14">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-14 animate-fadeIn">
       Everything Your Chama Needs
     </h2>
-    <div class="grid md:grid-cols-3 gap-10">
-
-      <!-- Feature Card -->
-      <div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-lg transition">
-        <div class="flex justify-center mb-4">
-          <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5"
-               viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M8 17l4 4 4-4m0-10l-4-4-4 4"/>
-          </svg>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Feature Card 1 -->
+      <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+        <div class="flex justify-center mb-6">
+          <div class="p-4 bg-green-100 rounded-full group-hover:bg-green-200 transition-colors duration-300">
+            <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 17l4 4 4-4m0-10l-4-4-4 4"/>
+            </svg>
+          </div>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Effortless Chama Management</h3>
-        <p class="text-sm text-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">Effortless Chama Management</h3>
+        <p class="text-gray-600">
           Simplify how you track savings, assign roles, run votes, and manage your group finances.
         </p>
       </div>
 
-      <!-- Feature Card -->
-      <div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-lg transition">
-        <div class="flex justify-center mb-4">
-          <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5"
-               viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M17 9V7a4 4 0 00-8 0v2m-2 4h12v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6z"/>
-          </svg>
+      <!-- Feature Card 2 -->
+      <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+        <div class="flex justify-center mb-6">
+          <div class="p-4 bg-green-100 rounded-full group-hover:bg-green-200 transition-colors duration-300">
+            <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a4 4 0 00-8 0v2m-2 4h12v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6z"/>
+            </svg>
+          </div>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Loans + Voting System</h3>
-        <p class="text-sm text-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">Loans + Voting System</h3>
+        <p class="text-gray-600">
           Members can apply for loans, vote on approvals, and monitor repayments securely.
         </p>
       </div>
 
-      <!-- Feature Card -->
-      <div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-lg transition">
-        <div class="flex justify-center mb-4">
-          <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5"
-               viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3 10h11M9 21V3M17 16l4-4m0 0l-4-4m4 4H11"/>
-          </svg>
+      <!-- Feature Card 3 -->
+      <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+        <div class="flex justify-center mb-6">
+          <div class="p-4 bg-green-100 rounded-full group-hover:bg-green-200 transition-colors duration-300">
+            <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h11M9 21V3M17 16l4-4m0 0l-4-4m4 4H11"/>
+            </svg>
+          </div>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">M-Pesa + SMS Integration</h3>
-        <p class="text-sm text-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">M-Pesa + SMS Integration</h3>
+        <p class="text-gray-600">
           Receive payments via M-Pesa and keep members in the loop through instant SMS alerts.
         </p>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- CTA SECTION -->
-<section class="py-20 bg-green-600 text-white text-center">
-  <div class="max-w-2xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+<section class="py-20 bg-gradient-to-r from-green-50 to-white text-gray-700 text-center">
+  <div class="max-w-2xl mx-auto px-6 relative">
+    <div class="absolute -top-20 -left-20 w-40 h-40 bg-green-300 rounded-full opacity-20 animate-ping-slow"></div>
+    <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-ping-slower"></div>
+    
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 relative z-10">
       Ready to Transform Your Chama?
     </h2>
-    <p class="text-lg mb-8">
+    <p class="text-lg mb-8 text-gray-700 relative z-10">
       Join hundreds of Kenyan groups using Changa to grow their savings and make smarter decisions.
     </p>
-    <a href="{% url 'signup' %}" class="bg-white text-green-700 px-8 py-3 rounded-xl text-lg font-semibold shadow hover:bg-green-100 transition">
-      Create Free Account
+    <a href="{% url 'create-chama' %}" class="inline-block bg-white text-green-600 px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative z-10">
+      Create A New Chama
     </a>
   </div>
 </section>
+
+<!-- FAQ SECTION -->
+<section class="py-24 bg-gradient-to-l from-green-50 to-white" id="faq">
+  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-start ">
+    <div class="space-y-4 ml-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center md:text-left">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-gray-600 mb-8 text-center md:text-left">
+        Find answers to common questions about Changa and how it can help your chama.
+      </p>
+      <div class="hidden md:block">
+        <img src="{% static 'images/faq-chama.jpg' %}" alt="FAQ illustration" 
+             class="w-full max-w-md rounded-2xl shadow-lg transform transition-all duration-1000 hover:scale-102">
+      </div>
+    </div>
+
+    <div class="space-y-4 mr-4" x-data="{ selected: null }">
+      <!-- FAQ Item 1 -->
+      <div class="border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+        <button @click="selected === 1 ? selected = null : selected = 1"
+                class="flex items-center justify-between w-full text-left text-lg font-semibold text-gray-800">
+          <span>What is Changa?</span>
+          <svg class="w-5 h-5 text-green-600 transition-transform duration-200" 
+               :class="selected === 1 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="selected === 1" x-collapse class="mt-3 text-gray-600">
+          Changa is a digital tool that helps your chama manage savings, loans, meetings, and more - all in one place.
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+        <button @click="selected === 2 ? selected = null : selected = 2"
+                class="flex items-center justify-between w-full text-left text-lg font-semibold text-gray-800">
+          <span>How do I join a chama?</span>
+          <svg class="w-5 h-5 text-green-600 transition-transform duration-200" 
+               :class="selected === 2 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="selected === 2" x-collapse class="mt-3 text-gray-600">
+          You can join a chama using a special invite code shared by the chama's admin or chairperson.
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+        <button @click="selected === 3 ? selected = null : selected = 3"
+                class="flex items-center justify-between w-full text-left text-lg font-semibold text-gray-800">
+          <span>How do I make my contributions?</span>
+          <svg class="w-5 h-5 text-green-600 transition-transform duration-200" 
+               :class="selected === 3 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="selected === 3" x-collapse class="mt-3 text-gray-600">
+          You can add your contributions manually or soon pay directly through M-Pesa from within the app.
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+        <button @click="selected === 4 ? selected = null : selected = 4"
+                class="flex items-center justify-between w-full text-left text-lg font-semibold text-gray-800">
+          <span>Can I request a loan?</span>
+          <svg class="w-5 h-5 text-green-600 transition-transform duration-200" 
+               :class="selected === 4 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="selected === 4" x-collapse class="mt-3 text-gray-600">
+          Yes. If you're a member, you can apply for a loan. Your group admins will review and approve it.
+        </div>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+        <button @click="selected === 5 ? selected = null : selected = 5"
+                class="flex items-center justify-between w-full text-left text-lg font-semibold text-gray-800">
+          <span>Is Changa free to use?</span>
+          <svg class="w-5 h-5 text-green-600 transition-transform duration-200" 
+               :class="selected === 5 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="selected === 5" x-collapse class="mt-3 text-gray-600">
+          Yes! Changa is currently free for chama groups to use. Some advanced features may require a small fee in the future.
+        </div>
+      </div>
+
+      <!-- FAQ Item 6 -->
+      <div class="border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+        <button @click="selected === 6 ? selected = null : selected = 6"
+                class="flex items-center justify-between w-full text-left text-lg font-semibold text-gray-800">
+          <span>Is my money safe?</span>
+          <svg class="w-5 h-5 text-green-600 transition-transform duration-200" 
+               :class="selected === 6 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="selected === 6" x-collapse class="mt-3 text-gray-600">
+          Yes. All funds are securely held in your chama's Paybill account. Only trusted members can approve withdrawals.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.1; }
+  }
+  @keyframes pulse-slower {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.05; }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animate-ping-slow {
+    animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .animate-ping-slower {
+    animation: pulse-slower 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
+
 {% endblock %}

@@ -1,0 +1,319 @@
+{% extends "base.html" %}
+{% block title %}My Chama Dashboard{% endblock %}
+
+{% block content %}
+<section class="py-12 px-4 bg-gray-50 min-h-screen">
+  <div class="max-w-6xl mx-auto">
+    
+    {% if in_chama %}
+      <!-- HEADER WITH ANIMATED GREETING -->
+      <div class="mb-8 text-center animate-fade-in">
+        {% comment %} <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-full shadow-lg mb-4">
+          <span class="text-2xl text-white">👋</span>
+        </div> {% endcomment %}
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Welcome, {{ user.get_full_name|default:user.username }}</h2>
+        <div class="badge bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-medium animate-bounce-in">
+          {{ user_role|title }} of <span class="font-semibold">{{ chama.name }}</span>
+        </div>
+      </div>
+
+      <!-- STAT CARDS WITH HOVER EFFECTS -->
+      <div class="grid md:grid-cols-4 gap-6 mb-10">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-center justify-center w-12 h-12 bg-green-50 rounded-lg mb-3 mx-auto">
+            <i class="fas fa-piggy-bank text-green-600 text-xl"></i>
+          </div>
+          <p class="text-sm text-gray-500 text-center">Group Savings</p>
+          <h3 class="text-2xl font-bold text-green-700 text-center">KES {{ total_savings }}</h3>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-center justify-center w-12 h-12 bg-blue-50 rounded-lg mb-3 mx-auto">
+            <i class="fas fa-hand-holding-usd text-blue-600 text-xl"></i>
+          </div>
+          <p class="text-sm text-gray-500 text-center">Your Contribution</p>
+          <h3 class="text-2xl font-bold text-blue-700 text-center">KES {{ user_contributions }}</h3>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-center justify-center w-12 h-12 bg-red-50 rounded-lg mb-3 mx-auto">
+            <i class="fas fa-file-invoice-dollar text-red-600 text-xl"></i>
+          </div>
+          <p class="text-sm text-gray-500 text-center">Loan Balance</p>
+          <h3 class="text-2xl font-bold text-red-600 text-center">KES {{ user_loans }}</h3>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-center justify-center w-12 h-12 bg-yellow-50 rounded-lg mb-3 mx-auto">
+            <i class="fas fa-bullseye text-yellow-600 text-xl"></i>
+          </div>
+          <p class="text-sm text-gray-500 text-center">Goal Progress</p>
+          <div class="mt-2">
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div class="bg-yellow-600 h-2.5 rounded-full" style="width: {{ goal_progress }}%"></div>
+            </div>
+            <h3 class="text-xl font-bold text-yellow-600 text-center mt-2">{{ goal_progress }}%</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="bg-white rounded-xl shadow-sm p-6 mb-10 animate-slide-up">
+        <h4 class="text-lg font-semibold mb-4 flex items-center">
+          <i class="fas fa-bolt text-purple-600 mr-2"></i>
+          Quick Actions
+        </h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="#" class="flex flex-col items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-2">
+              <i class="fas fa-plus"></i>
+            </div>
+            <span class="text-sm font-medium">Add Contribution</span>
+          </a>
+          <a href="#" class="flex flex-col items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-2">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <span class="text-sm font-medium">Request Loan</span>
+          </a>
+          <a href="#" class="flex flex-col items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-2">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <span class="text-sm font-medium">Invite Member</span>
+          </a>
+          <a href="#" class="flex flex-col items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+            <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 mb-2">
+              <i class="fas fa-file-export"></i>
+            </div>
+            <span class="text-sm font-medium">Export Data</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- RECENT ACTIVITY CARDS -->
+      <div class="grid md:grid-cols-2 gap-6 mb-10">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden animate-slide-up">
+          <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+            <h4 class="text-lg font-semibold flex items-center">
+              <i class="fas fa-coins text-green-600 mr-2"></i>
+              Recent Contributions
+            </h4>
+            <a href="#" class="text-sm text-green-600 hover:text-green-700">View All</a>
+          </div>
+          <ul class="divide-y divide-gray-100">
+            {% for c in recent_contributions %}
+              <li class="p-4 hover:bg-gray-50 transition-colors duration-150">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-900">{{ c.member.get_full_name|default:c.member.username }}</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                      <span>KES {{ c.amount }}</span>
+                      <span class="mx-1">•</span>
+                      <span>{{ c.date|date:"M d, Y" }}</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% empty %}
+              <li class="p-6 text-center text-gray-400">
+                <i class="fas fa-inbox text-3xl mb-2"></i>
+                <p>No recent contributions</p>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden animate-slide-up">
+          <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+            <h4 class="text-lg font-semibold flex items-center">
+              <i class="fas fa-hand-holding-usd text-blue-600 mr-2"></i>
+              Recent Loans
+            </h4>
+            <a href="#" class="text-sm text-blue-600 hover:text-blue-700">View All</a>
+          </div>
+          <ul class="divide-y divide-gray-100">
+            {% for l in recent_loans %}
+              <li class="p-4 hover:bg-gray-50 transition-colors duration-150">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-900">{{ l.member.get_full_name|default:l.member.username }}</p>
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm text-gray-500">KES {{ l.amount }}</span>
+                      <span class="px-2 py-1 text-xs rounded-full 
+                        {% if l.status == 'approved' %}bg-green-100 text-green-800
+                        {% elif l.status == 'pending' %}bg-yellow-100 text-yellow-800
+                        {% else %}bg-red-100 text-red-800{% endif %}">
+                        {{ l.status|title }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% empty %}
+              <li class="p-6 text-center text-gray-400">
+                <i class="fas fa-inbox text-3xl mb-2"></i>
+                <p>No recent loans</p>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <!-- MEMBERS SECTION -->
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden animate-slide-up">
+        <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+          <h4 class="text-lg font-semibold flex items-center">
+            <i class="fas fa-users text-purple-600 mr-2"></i>
+            Chama Members
+          </h4>
+          <a href="#" class="text-sm text-purple-600 hover:text-purple-700">Manage</a>
+        </div>
+        <div class="p-6">
+          <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {% for m in members %}
+              <li class="p-4 border border-gray-100 rounded-lg hover:shadow-sm transition-all duration-200">
+                <div class="flex items-center space-x-4">
+                  <div class="flex-shrink-0 h-12 w-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">{{ m.user.get_full_name|default:m.user.username }}</p>
+                    <p class="text-sm text-gray-500">{{ m.get_role_display }}</p>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <!-- INVITE SECTION -->
+      <div class="bg-white rounded-xl shadow-sm p-6 mt-6 animate-slide-up">
+        <h4 class="text-lg font-semibold mb-3 flex items-center">
+          <i class="fas fa-user-plus text-green-600 mr-2"></i>
+          Invite Members
+        </h4>
+        <p class="text-sm text-gray-500 mb-4">Share this unique code to invite others to join your chama:</p>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+          <div class="relative flex-grow">
+            <input type="text" readonly value="{{ invite_code }}"
+                  class="w-full px-4 py-3 border rounded-lg bg-gray-50 text-gray-800 font-mono text-center tracking-wider"
+                  id="inviteCodeInput">
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <i class="fas fa-link text-gray-400"></i>
+            </div>
+          </div>
+          <button onclick="copyInviteCode()" 
+                  class="px-5 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+            <i class="fas fa-copy"></i>
+            <span>Copy Code</span>
+          </button>
+        </div>
+      </div>
+
+    {% else %}
+      <!-- EMPTY STATE WITH ANIMATION -->
+      <div class="text-center py-24 animate-fade-in">
+        <div class="mx-auto w-24 h-24 bg-gradient-to-r from-green-100 to-green-50 rounded-full flex items-center justify-center mb-6 shadow-inner">
+          <i class="fas fa-users text-green-600 text-3xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-700 mb-4">You haven't joined or created a chama yet.</h2>
+        <p class="text-gray-500 max-w-md mx-auto mb-8">Start your investment journey by creating a new chama or joining an existing one.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+          <a href="{% url 'create-chama' %}" class="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white bg-gradient-to-r from-green-500 to-green-600 rounded-lg shadow-lg group hover:shadow-xl transition-all duration-300">
+            <span class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white to-transparent opacity-10"></span>
+            <span class="relative flex items-center">
+              <i class="fas fa-plus mr-2"></i> Create a Chama
+            </span>
+          </a>
+          <a href="{% url '#' %}" class="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-green-600 border-2 border-green-600 rounded-lg group hover:text-white transition-all duration-300">
+            <span class="absolute inset-0 w-full h-full bg-green-600 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+            <span class="relative flex items-center">
+              <i class="fas fa-key mr-2"></i> Join with Invite Code
+            </span>
+          </a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% block extra_css %}
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes bounceIn {
+    0% { 
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    50% { 
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    100% { 
+      transform: scale(1);
+    }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  .animate-bounce-in {
+    animation: bounceIn 0.6s ease-out forwards;
+  }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function copyInviteCode() {
+  const input = document.getElementById('inviteCodeInput');
+  input.select();
+  input.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(input.value)
+    .then(() => {
+      // Show toast notification
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg flex items-center';
+      toast.innerHTML = `
+        <i class="fas fa-check-circle mr-2"></i>
+        Invite code copied!
+      `;
+      document.body.appendChild(toast);
+      
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+        setTimeout(() => toast.remove(), 300);
+      }, 2000);
+    })
+    .catch(() => {
+      alert('Failed to copy code. Please try again.');
+    });
+}
+</script>
+{% endblock %}
+
+{% endblock %}
