@@ -1,0 +1,111 @@
+{% extends 'website/base.html' %}
+
+{% block title %}webmetro ERP - Modern ERP for East Africa{% endblock %}
+
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+<section class="relative py-20 lg:py-24 bg-gray-50 overflow-hidden">
+    <div class="container mx-auto px-4">
+      <main class="flex flex-col lg:flex-row items-center justify-between lg:gap-16">
+        <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+          <span class="text-orange-500 font-semibold">webmetro ERP</span>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight my-4">
+            Digitize Sales & Stock
+            <br />
+            in Under
+            <br />
+            <span class="text-orange-500">14 Days</span>
+          </h1>
+          <p class="text-gray-500 text-lg mb-8">
+            Tired of missing receipts & messy records? Automate everything from sales to tax with one smart tool.
+          </p>
+  
+          <div class="space-y-4 max-w-md mx-auto lg:mx-0">
+            <div class="flex flex-col sm:flex-row gap-4">
+              <input
+                type="text"
+                id="firstName"
+                placeholder="First Name"
+                class="flex-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800"
+              />
+              <input
+                type="text"
+                id="lastName"
+                placeholder="Last Name"
+                class="flex-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800"
+              />
+            </div>
+  
+            <div id="moreFields" class="hidden space-y-4 pt-4">
+              <input
+                type="email"
+                placeholder="Email"
+                class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800"
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800"
+              />
+              <select
+                class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800"
+              >
+                <option selected disabled>Select Country</option>
+                <option value="kenya">Kenya</option>
+                <option value="tanzania">Tanzania</option>
+                <option value="uganda">Uganda</option>
+              </select>
+            </div>
+  
+            <button
+              onclick="showMoreFields()"
+              class="bg-orange-500 text-white font-bold rounded-md px-6 py-3 hover:bg-orange-600 transition duration-300 w-full sm:w-auto"
+            >
+              Start Free Trial
+            </button>
+  
+            <p class="text-gray-500 text-sm">No Credit Card Required – Start Today</p>
+          </div>
+        </div>
+  
+        <div class="lg:w-1/2">
+            {% load static %}
+            <div class="w-full h-full rounded-2xl shadow-xl overflow-hidden">
+                <video 
+                    class="w-full h-full object-cover" 
+                    src="{% static 'videos/intro.mp4' %}" 
+                    playsinline 
+                    controls 
+                    
+                    aria-label="A demo video of the webmetro ERP dashboard in action.">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+        </div>
+      </main>
+    </div>
+  </section>
+  
+  <script>
+    function showMoreFields() {
+      document.getElementById('moreFields').classList.remove('hidden');
+    }
+  </script>
+  
+  {% include 'website/industries.html' %}
+  {% include 'website/action.html' %}
+  {% include 'website/business.html' %}
+  {% include 'website/features.html' %}
+  {% include 'website/advantage.html' %}
+  {% include 'website/testimonials.html' %}
+  {% include 'website/faq.html' %}
+  {% include 'website/calltoaction.html' %}
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'website/base.html' %}
+{% block title %}Simplify Your Business Operations | webmetro SaaS ERP{% endblock %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-[#8c52ff] via-[#5e17eb] to-[#0cc0df] py-20 text-center text-white rounded-b-3xl shadow-lg w-full">
+  <h1 class="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Simplify Your Business Operations with webmetro SaaS ERP</h1>
+  <p class="max-w-2xl mx-auto text-xl md:text-2xl mb-8 font-medium">Trusted in Kenya, Uganda, Rwanda, Tanzania</p>
+  <div class="flex flex-col md:flex-row gap-4 justify-center mb-8">
+    <a href="{% url 'website:subscribe-free-trial' %}" class="px-8 py-3 rounded-lg bg-[#ff69b4] text-white font-bold shadow-lg hover:bg-pink-600 transition">Start Free Trial</a>
+    <a href="#region" class="px-8 py-3 rounded-lg bg-white text-[#5e17eb] font-bold shadow-lg hover:bg-gray-100 transition border border-[#5e17eb]">Book Demo</a>
+  </div>
+  <div class="text-sm text-white/80">No credit card required. Cancel anytime.</div>
+</section>
+<!-- Features Section -->
+{% include 'website/saas_features.html' %}
+<!-- Region Awareness Section -->
+{% include 'website/saas_region.html' %}
+<!-- Pricing Section -->
+
+{% endblock %} 

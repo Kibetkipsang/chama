@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Welcome to webmetro ERP{% endblock %}
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 via-blue-50 to-blue-200 py-12">
+  <div class="w-full max-w-5xl flex flex-col md:flex-row items-stretch gap-0 md:gap-8">
+    <!-- Hero Section -->
+    <div class="md:w-1/2 flex flex-col justify-center items-start p-10 bg-white/70 backdrop-blur-lg rounded-2xl shadow-2xl border border-purple-100 relative overflow-hidden">
+      <div class="absolute -top-10 -right-10 w-40 h-40 bg-purple-200 rounded-full opacity-30 blur-2xl animate-pulse"></div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-purple-800 mb-4 drop-shadow-lg">webmetro ERP</h1>
+      <p class="text-lg text-gray-700 mb-6 font-medium">All-in-one business management for modern teams.<br><span class="font-bold text-blue-700">Start for FREE today!</span></p>
+      <ul class="mb-8 space-y-2">
+        <li class="flex items-center gap-2"><i class="bi bi-check-circle text-green-600"></i> Invoicing & Payments</li>
+        <li class="flex items-center gap-2"><i class="bi bi-check-circle text-green-600"></i> Inventory & Sales</li>
+        <li class="flex items-center gap-2"><i class="bi bi-check-circle text-green-600"></i> CRM & Contacts</li>
+        <li class="flex items-center gap-2"><i class="bi bi-check-circle text-green-600"></i> Free forever plan</li>
+      </ul>
+      <a href="#register" class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-bold shadow-lg hover:scale-105 transition-transform">Get Started Free</a>
+      <div class="text-xs text-gray-400 mt-4">No credit card required. Cancel anytime.</div>
+    </div>
+    <!-- Forms Section -->
+    <div class="md:w-1/2 flex flex-col gap-8 justify-center p-10 bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl border border-blue-100">
+      {% if register_success %}
+        <div class="bg-green-100 text-green-800 px-4 py-3 rounded mb-4 text-center font-semibold">Registration successful! Please log in.</div>
+      {% endif %}
+      <div class="flex flex-col gap-8 md:flex-row md:gap-4">
+        <!-- Login Form -->
+        <form method="post" action="/login/" class="flex-1 bg-white/90 rounded-xl shadow p-6 flex flex-col gap-4 border border-gray-100">
+          <h2 class="text-2xl font-bold text-blue-700 mb-2">Login</h2>
+          {% csrf_token %}
+          <input type="text" name="username" placeholder="Username" class="form-input w-full rounded border-gray-300 focus:ring-2 focus:ring-blue-500" required>
+          <input type="password" name="password" placeholder="Password" class="form-input w-full rounded border-gray-300 focus:ring-2 focus:ring-blue-500" required>
+          <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded shadow transition">Login</button>
+          <div class="text-xs text-center mt-2"><a href="{% url 'password_reset' %}" class="text-blue-600 hover:underline">Forgot password?</a></div>
+        </form>
+        <!-- Register Form -->
+        <form id="register" method="post" action="" class="flex-1 bg-white/90 rounded-xl shadow p-6 flex flex-col gap-4 border border-gray-100">
+          <h2 class="text-2xl font-bold text-purple-700 mb-2">Register Free</h2>
+          {% csrf_token %}
+          <input type="hidden" name="register" value="1">
+          <input type="text" name="username" placeholder="Username" class="form-input w-full rounded border-gray-300 focus:ring-2 focus:ring-purple-500" required>
+          <input type="email" name="email" placeholder="Email" class="form-input w-full rounded border-gray-300 focus:ring-2 focus:ring-purple-500" required>
+          <input type="password" name="password1" placeholder="Password" class="form-input w-full rounded border-gray-300 focus:ring-2 focus:ring-purple-500" required>
+          <input type="password" name="password2" placeholder="Confirm Password" class="form-input w-full rounded border-gray-300 focus:ring-2 focus:ring-purple-500" required>
+          <button type="submit" class="w-full bg-gradient-to-r from-purple-700 to-blue-700 hover:from-purple-800 hover:to-blue-800 text-white font-semibold py-2 rounded shadow transition">Register Free</button>
+          <div class="text-xs text-center mt-2 text-gray-400">By registering, you agree to our <a href="#" class="underline">Terms</a>.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} 

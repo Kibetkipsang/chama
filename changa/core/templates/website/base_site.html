@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% include 'website/public_navbar.html' %}
+  <main class="w-full min-h-[70vh]">
+    {% block page_content %}{% endblock %}
+  </main>
+  {% include 'website/public_footer.html' %}
+{% endblock %} 

@@ -1,0 +1,724 @@
+{% extends 'website/base.html' %}
+
+{% block title %}webmetro ERP - Modern ERP for East Africa{% endblock %}
+
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+<section class="relative py-20 lg:py-24 bg-gray-50 overflow-hidden">
+    <div class="container mx-auto px-4">
+      <main class="flex flex-col lg:flex-row items-center justify-between lg:gap-16">
+        <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+          <span class="text-orange-500 font-semibold">webmetro ERP</span>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight my-4">
+            Digitize Sales & Stock
+            <br />
+            in Under
+            <br />
+            <span class="text-orange-500">14 Days</span>
+          </h1>
+          <p class="text-gray-500 text-lg mb-8">
+            Tired of missing receipts & messy records? Automate everything from sales to tax with one smart tool.
+          </p>
+  
+          <div class="space-y-4 max-w-md mx-auto lg:mx-0">
+            <div class="flex flex-col sm:flex-row gap-4">
+              <input
+                type="text"
+                id="firstName"
+                placeholder="First Name"
+                class="flex-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800"
+              />
+              <input
+                type="text"
+                id="lastName"
+                placeholder="Last Name"
+                class="flex-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800"
+              />
+            </div>
+  
+            <div id="moreFields" class="hidden space-y-4 pt-4">
+              <input
+                type="email"
+                placeholder="Email"
+                class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800"
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800"
+              />
+              <select
+                class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800"
+              >
+                <option selected disabled>Select Country</option>
+                <option value="kenya">Kenya</option>
+                <option value="tanzania">Tanzania</option>
+                <option value="uganda">Uganda</option>
+              </select>
+            </div>
+  
+            <button
+              onclick="showMoreFields()"
+              class="bg-orange-500 text-white font-bold rounded-md px-6 py-3 hover:bg-orange-600 transition duration-300 w-full sm:w-auto"
+            >
+              Start Free Trial
+            </button>
+  
+            <p class="text-gray-500 text-sm">No Credit Card Required – Start Today</p>
+          </div>
+        </div>
+  
+        <div class="lg:w-1/2">
+            {% load static %}
+          <img
+          src="{% static 'images/webmetro.jpg' %}"
+            alt="Person using a laptop with digital icons overlay"
+            class="w-full h-full object-cover rounded-xl shadow-lg"
+          />
+        </div>
+      </main>
+    </div>
+  </section>
+  
+  <script>
+    function showMoreFields() {
+      document.getElementById('moreFields').classList.remove('hidden');
+    }
+  </script>
+  
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Why Choose webmetro ERP?</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                The only ERP solution built specifically for African business realities
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center bg-white shadow-md rounded-xl p-8 hover-scale-card border border-gray-100">
+                <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                    <i data-lucide="shield-check" class="h-8 w-8 text-accent-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">ETIMS Ready</h3>
+                <p class="text-gray-600">Full ETIMS compliance out of the box — no setup hassle, just seamless operations.</p>
+            </div>
+            <div class="text-center bg-white shadow-md rounded-xl p-8 hover-scale-card border border-gray-100">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                    <i data-lucide="map-pin" class="h-8 w-8 text-primary-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Locally Built</h3>
+                <p class="text-gray-600">Designed specifically for African business realities, ensuring relevant features.</p>
+            </div>
+            <div class="text-center bg-white shadow-md rounded-xl p-8 hover-scale-card border border-gray-100">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                    <i data-lucide="wallet" class="h-8 w-8 text-purple-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Affordable</h3>
+                <p class="text-gray-600">Transparent pricing that grows with your business, without hidden fees.</p>
+            </div>
+            <div class="text-center bg-white shadow-md rounded-xl p-8 hover-scale-card border border-gray-100">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                    <i data-lucide="zap" class="h-8 w-8 text-orange-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Easy Setup</h3>
+                <p class="text-gray-600">Go live in under 7 days with dedicated support and training from our team.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="industries" class="py-20 bg-gray-50">
+    <div class="container mx-auto">
+        <div class="text-center mb-12 px-6 lg:px-8">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Tailored for Your Industry</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Specialized solutions for the backbone of African commerce
+            </p>
+        </div>
+
+        <div class="relative w-full overflow-hidden py-4 fade-mask">
+            <div class="flex w-max animate-marquee-horizontal">
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100">
+                    <span class="text-3xl">🌾</span>
+                    <span class="text-lg font-semibold text-gray-700">Agro-Dealers</span>
+                </div>
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100">
+                    <span class="text-3xl">💊</span>
+                    <span class="text-lg font-semibold text-gray-700">Pharmacies</span>
+                </div>
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100">
+                    <span class="text-3xl">🐄</span>
+                    <span class="text-lg font-semibold text-gray-700">Veterinary Suppliers</span>
+                </div>
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100">
+                    <span class="text-3xl">🏪</span>
+                    <span class="text-lg font-semibold text-gray-700">Agrovets</span>
+                </div>
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100">
+                    <span class="text-3xl">📦</span>
+                    <span class="text-lg font-semibold text-gray-700">Wholesale Distributors</span>
+                </div>
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100">
+                    <span class="text-3xl">🛒</span>
+                    <span class="text-lg font-semibold text-gray-700">Supermarkets</span>
+                </div>
+
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100" aria-hidden="true">
+                    <span class="text-3xl">🌾</span>
+                    <span class="text-lg font-semibold text-gray-700">Agro-Dealers</span>
+                </div>
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100" aria-hidden="true">
+                    <span class="text-3xl">💊</span>
+                    <span class="text-lg font-semibold text-gray-700">Pharmacies</span>
+                </div>
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100" aria-hidden="true">
+                    <span class="text-3xl">🐄</span>
+                    <span class="text-lg font-semibold text-gray-700">Veterinary Suppliers</span>
+                </div>
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100" aria-hidden="true">
+                    <span class="text-3xl">🏪</span>
+                    <span class="text-lg font-semibold text-gray-700">Agrovets</span>
+                </div>
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-full shadow-md space-x-4 border border-gray-100" aria-hidden="true">
+                    <span class="text-3xl">📦</span>
+                    <span class="text-lg font-semibold text-gray-700">Wholesale Distributors</span>
+                </div>
+                <div class="flex-shrink-0 mx-4 flex items-center bg-white px-7 py-4 rounded-md space-x-4 border border-gray-100" aria-hidden="true">
+                    <span class="text-3xl">🛒</span>
+                    <span class="text-lg font-semibold text-gray-700">Supermarkets</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="py-20 bg-white overflow-x-hidden">
+    <div class="container mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Everything You Need to Run Your Business
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive modules designed for African SMEs</p>
+        </div>
+
+        <div class="space-y-16 lg:space-y-24">
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center fade-in-section">
+                <div class="bg-gray-100 border border-gray-200 rounded-2xl h-80 flex items-center justify-center shadow-inner overflow-hidden">
+                    <img src="https://via.placeholder.com/600x400/F0F4F8/C1D5E0?text=Inventory+Dashboard" alt="Inventory Management Screenshot" class="w-full h-full object-cover rounded-xl p-4">
+                </div>
+                <div class="space-y-5">
+                    <div class="inline-flex items-center space-x-4 bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-lg font-semibold">
+                        <i data-lucide="package" class="h-6 w-6"></i>
+                        <h3>Inventory Management</h3>
+                    </div>
+                    <ul class="space-y-3.5 text-gray-700 text-lg">
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Multi-location stock tracking for accurate insights across all your branches.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Expiry and batch control to minimize waste and ensure product quality.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Efficient barcode scanning for faster stock in/out processes.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Detailed stock movement logs for complete audit trails.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Various inventory valuation methods (FIFO, LIFO, Weighted Avg.) supported.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center fade-in-section">
+                <div class="space-y-5 order-2 md:order-1">
+                    <div class="inline-flex items-center space-x-4 bg-accent-50 text-accent-700 px-4 py-2 rounded-full text-lg font-semibold">
+                        <i data-lucide="trending-up" class="h-6 w-6"></i>
+                        <h3>Sales & CRM</h3>
+                    </div>
+                    <ul class="space-y-3.5 text-gray-700 text-lg">
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Comprehensive customer database to manage relationships effectively.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Streamlined quotation and sales order management.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Automated ETIMS-compliant invoice generation for seamless tax reporting.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Intuitive sales dashboards for real-time performance monitoring.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Automated payment follow-ups to optimize cash flow.</span></li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 border border-gray-200 rounded-2xl h-80 flex items-center justify-center shadow-inner overflow-hidden order-1 md:order-2">
+                    <img src="https://via.placeholder.com/600x400/F0F4F8/C1D5E0?text=Sales+CRM+Screenshot" alt="Sales & CRM Screenshot" class="w-full h-full object-cover rounded-xl p-4">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center fade-in-section">
+                <div class="bg-gray-100 border border-gray-200 rounded-2xl h-80 flex items-center justify-center shadow-inner overflow-hidden">
+                    <img src="https://via.placeholder.com/600x400/F0F4F8/C1D5E0?text=Procurement+Screenshot" alt="Procurement Screenshot" class="w-full h-full object-cover rounded-xl p-4">
+                </div>
+                <div class="space-y-5">
+                    <div class="inline-flex items-center space-x-4 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-lg font-semibold">
+                        <i data-lucide="shopping-cart" class="h-6 w-6"></i>
+                        <h3>Procurement</h3>
+                    </div>
+                    <ul class="space-y-3.5 text-gray-700 text-lg">
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Centralized supplier management for better vendor relationships.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Efficient Local Purchase Orders (LPOs) and order tracking.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Configurable purchase approval workflows.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Automated Goods Received Notes (GRNs) for accurate stock intake.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Detailed cost comparison reports for informed purchasing decisions.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center fade-in-section">
+                <div class="space-y-5 order-2 md:order-1">
+                    <div class="inline-flex items-center space-x-4 bg-green-50 text-green-700 px-4 py-2 rounded-full text-lg font-semibold">
+                        <i data-lucide="dollar-sign" class="h-6 w-6"></i>
+                        <h3>Finance & Accounting</h3>
+                    </div>
+                    <ul class="space-y-3.5 text-gray-700 text-lg">
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Customizable chart of accounts for robust financial structuring.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Easy expense tracking and categorization.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Automated receivables and payables management.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Comprehensive monthly financial reports (P&L, Balance Sheet).</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Bank & M-Pesa reconciliation-ready for streamlined finance.</span></li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 border border-gray-200 rounded-2xl h-80 flex items-center justify-center shadow-inner overflow-hidden order-1 md:order-2">
+                    <img src="https://via.placeholder.com/600x400/F0F4F8/C1D5E0?text=Finance+Accounting+Screenshot" alt="Finance & Accounting Screenshot" class="w-full h-full object-cover rounded-xl p-4">
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center fade-in-section">
+                <div class="bg-gray-100 border border-gray-200 rounded-2xl h-80 flex items-center justify-center shadow-inner overflow-hidden">
+                    <img src="https://via.placeholder.com/600x400/F0F4F8/C1D5E0?text=HR+Screenshot" alt="Human Resources Screenshot" class="w-full h-full object-cover rounded-xl p-4">
+                </div>
+                <div class="space-y-5">
+                    <div class="inline-flex items-center space-x-4 bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-lg font-semibold">
+                        <i data-lucide="users-round" class="h-6 w-6"></i>
+                        <h3>Human Resources</h3>
+                    </div>
+                    <ul class="space-y-3.5 text-gray-700 text-lg">
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Detailed employee profiles with essential information.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Defined departmental roles and responsibilities.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Simplified leave management and tracking.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Basic payroll module for effortless salary processing.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Monthly HR activity reports for strategic insights.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center fade-in-section">
+                <div class="space-y-5 order-2 md:order-1">
+                    <div class="inline-flex items-center space-x-4 bg-orange-50 text-orange-700 px-4 py-2 rounded-full text-lg font-semibold">
+                        <i data-lucide="plug" class="h-6 w-6"></i>
+                        <h3>Compliance & Integrations</h3>
+                    </div>
+                    <ul class="space-y-3.5 text-gray-700 text-lg">
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Full ETIMS compliance ensures you meet all regulatory requirements.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Future-ready for seamless integration with other essential APIs.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0 mt-1"></i><span>Robust Payment & Logistics API Integrations for expanded functionality.</span></li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 border border-gray-200 rounded-2xl h-80 flex items-center justify-center shadow-inner overflow-hidden order-1 md:order-2">
+                    <img src="https://via.placeholder.com/600x400/F0F4F8/C1D5E0?text=Integrations+Screenshot" alt="Compliance & Integrations Screenshot" class="w-full h-full object-cover rounded-xl p-4">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-gradient-section text-white">
+    <div class="container mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-4">Built for Africa, By Africans</h2>
+            <p class="text-xl opacity-90 max-w-3xl mx-auto">
+                Discover why businesses choose webmetro over international alternatives
+            </p>
+        </div>
+        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-8 lg:p-12 border border-white/20">
+            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+                <div class="space-y-2 p-3 rounded-lg bg-white/10"><div class="text-3xl">✅</div><div class="font-semibold text-lg">ETIMS Integration</div><div class="text-sm opacity-85">Built-in compliance, simplified.</div></div>
+                <div class="space-y-2 p-3 rounded-lg bg-white/10"><div class="text-3xl">✅</div><div class="font-semibold text-lg">Local Support</div><div class="text-sm opacity-85">Nairobi-based team, always ready.</div></div>
+                <div class="space-y-2 p-3 rounded-lg bg-white/10"><div class="text-3xl">✅</div><div class="font-semibold text-lg">Affordable Pricing</div><div class="text-sm opacity-85">SME-friendly rates that scale.</div></div>
+                <div class="space-y-2 p-3 rounded-lg bg-white/10"><div class="text-3xl">✅</div><div class="font-semibold text-lg">African Focus</div><div class="text-sm opacity-85">Designed for our unique markets.</div></div>
+                <div class="space-y-2 p-3 rounded-lg bg-white/10 md:col-span-3 lg:col-span-1"><div class="text-3xl">✅</div><div class="font-semibold text-lg">Mobile-First</div><div class="text-sm opacity-85">Seamless experience on any device.</div></div>
+            </div>
+            <div class="text-center mt-10">
+                <p class="text-lg opacity-90 mb-6 max-w-xl mx-auto">
+                    While competitors charge premium prices for basic features, we deliver enterprise-grade functionality at SME-friendly rates.
+                </p>
+                <button class="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-colors text-lg shadow-md hover:shadow-lg hover:scale-105">
+                    Compare Features
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Start Free, Scale Smart</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Transparent pricing that grows with your business</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+            <div class="bg-white rounded-xl shadow-lg border-2 border-accent-500 relative hover-scale-card p-8">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span class="bg-accent-600 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-md">Most Popular</span>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Free Trial</h3>
+                    <div class="text-4xl font-extrabold text-accent-600 mb-3">14 Days</div>
+                    <p class="text-gray-600 mb-7 text-base">Full access - no credit card required</p>
+                    <ul class="space-y-3 mb-7 text-left text-base text-gray-700">
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>All features included</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>ETIMS integration & support</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Dedicated customer support</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Assisted data migration</li>
+                    </ul>
+                    <a href="{% url 'website:subscribe-free-trial' %}" class="block">
+                        <button class="w-full bg-accent-600 hover:bg-accent-700 text-white py-3.5 rounded-full font-semibold transition-colors text-lg shadow-md hover:shadow-lg">Start Free Trial</button>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-8 hover-scale-card border border-gray-100">
+                 <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Starter</h3>
+                    <div class="text-4xl font-extrabold text-gray-900 mb-3">Custom</div>
+                    <p class="text-gray-600 mb-7 text-base">Ideal for growing small businesses</p>
+                    <ul class="space-y-3 mb-7 text-left text-base text-gray-700">
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Up to 5 users included</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Essential reporting</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Email & chat support</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Mobile app access</li>
+                    </ul>
+                    <button class="w-full border border-gray-300 text-gray-700 py-3.5 rounded-full hover:bg-gray-50 font-semibold transition-colors text-lg shadow-md hover:shadow-lg">Get Pricing</button>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-8 hover-scale-card border border-gray-100">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Professional</h3>
+                    <div class="text-4xl font-extrabold text-gray-900 mb-3">Custom</div>
+                    <p class="text-gray-600 mb-7 text-base">Full features for established SMEs</p>
+                    <ul class="space-y-3 mb-7 text-left text-base text-gray-700">
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Unlimited users</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Advanced analytics & custom reports</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Priority phone & email support</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Full API access</li>
+                    </ul>
+                    <button class="w-full border border-gray-300 text-gray-700 py-3.5 rounded-full hover:bg-gray-50 font-semibold transition-colors text-lg shadow-md hover:shadow-lg">Get Pricing</button>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-8 hover-scale-card border border-gray-100">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Enterprise</h3>
+                    <div class="text-4xl font-extrabold text-gray-900 mb-3">Custom</div>
+                    <p class="text-gray-600 mb-7 text-base">Tailored for large operations & specific needs</p>
+                    <ul class="space-y-3 mb-7 text-left text-base text-gray-700">
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Custom integrations & development</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Dedicated account manager</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>On-premise deployment option</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 text-accent-500 mr-3 flex-shrink-0"></i>Service Level Agreement (SLA)</li>
+                    </ul>
+                    <button class="w-full border border-gray-300 text-gray-700 py-3.5 rounded-full hover:bg-gray-50 font-semibold transition-colors text-lg shadow-md hover:shadow-lg">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="container mx-auto">
+        <div class="text-center mb-16 px-6 lg:px-8">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Trusted by African Businesses</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">See what our early adopters are saying about webmetro ERP</p>
+        </div>
+        
+        <div class="relative w-full overflow-hidden py-4 fade-mask">
+            <div class="flex w-max animate-marquee-horizontal">
+                <div class="w-[450px] flex-shrink-0 mx-4 bg-white rounded-xl border border-gray-100 shadow-lg p-7 flex flex-col h-full hover-scale-card">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-5 flex-grow leading-relaxed">"webmetro transformed our agro-dealer business. The ETIMS integration saved us weeks of compliance work, and the inventory management keeps us from running out of critical fertilizers during planting season."</p>
+                    <div class="flex items-center mt-auto pt-5 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 text-lg font-semibold text-accent-700">JM</div>
+                        <div>
+                            <div class="font-semibold text-gray-900 text-base">John Mwangi</div>
+                            <div class="text-sm text-gray-500">Mwangi Agro-Dealers, Nakuru</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[450px] flex-shrink-0 mx-4 bg-white rounded-xl border border-gray-100 shadow-lg p-7 flex flex-col h-full hover-scale-card">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-5 flex-grow leading-relaxed">"As a pharmacy chain, compliance is everything. webmetro's expiry tracking and prescription management features have streamlined our operations across all three locations, significantly reducing errors."</p>
+                    <div class="flex items-center mt-auto pt-5 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 text-lg font-semibold text-primary-700">AN</div>
+                        <div>
+                            <div class="font-semibold text-gray-900 text-base">Dr. Amina Nakato</div>
+                            <div class="text-sm text-gray-500">Nakato Pharmacy Group, Kampala</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[450px] flex-shrink-0 mx-4 bg-white rounded-xl border border-gray-100 shadow-lg p-7 flex flex-col h-full hover-scale-card">
+                    <div class="flex items-center mb-4">
+                       <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-5 flex-grow leading-relaxed">"The multi-warehouse management and route optimization features have increased our distribution efficiency by 40%. webmetro truly understands the African market like no other ERP solution."</p>
+                    <div class="flex items-center mt-auto pt-5 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 text-lg font-semibold text-purple-700">PM</div>
+                        <div>
+                            <div class="font-semibold text-gray-900 text-base">Peter Mwenda</div>
+                            <div class="text-sm text-gray-500">East Africa Distributors, Dar es Salaam</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-[450px] flex-shrink-0 mx-4 bg-white rounded-xl border border-gray-100 shadow-lg p-7 flex flex-col h-full hover-scale-card" aria-hidden="true">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-5 flex-grow leading-relaxed">"webmetro transformed our agro-dealer business. The ETIMS integration saved us weeks of compliance work, and the inventory management keeps us from running out of critical fertilizers during planting season."</p>
+                    <div class="flex items-center mt-auto pt-5 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 text-lg font-semibold text-accent-700">JM</div>
+                        <div>
+                            <div class="font-semibold text-gray-900 text-base">John Mwangi</div>
+                            <div class="text-sm text-gray-500">Mwangi Agro-Dealers, Nakuru</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[450px] flex-shrink-0 mx-4 bg-white rounded-xl border border-gray-100 shadow-lg p-7 flex flex-col h-full hover-scale-card" aria-hidden="true">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-5 flex-grow leading-relaxed">"As a pharmacy chain, compliance is everything. webmetro's expiry tracking and prescription management features have streamlined our operations across all three locations, significantly reducing errors."</p>
+                    <div class="flex items-center mt-auto pt-5 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 text-lg font-semibold text-primary-700">AN</div>
+                        <div>
+                            <div class="font-semibold text-gray-900 text-base">Dr. Amina Nakato</div>
+                            <div class="text-sm text-gray-500">Nakato Pharmacy Group, Kampala</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[450px] flex-shrink-0 mx-4 bg-white rounded-xl border border-gray-100 shadow-lg p-7 flex flex-col h-full hover-scale-card" aria-hidden="true">
+                    <div class="flex items-center mb-4">
+                       <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400 mr-1"></i><i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-5 flex-grow leading-relaxed">"The multi-warehouse management and route optimization features have increased our distribution efficiency by 40%. webmetro truly understands the African market like no other ERP solution."</p>
+                    <div class="flex items-center mt-auto pt-5 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 text-lg font-semibold text-purple-700">PM</div>
+                        <div>
+                            <div class="font-semibold text-gray-900 text-base">Peter Mwenda</div>
+                            <div class="text-sm text-gray-500">East Africa Distributors, Dar es Salaam</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-gradient-section text-white">
+    <div class="container mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-5">Ready to Transform Your Business?</h2>
+        <p class="text-xl opacity-90 mb-9 max-w-2xl mx-auto">
+            Join hundreds of African SMEs already using webmetro ERP to streamline their operations.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <a href="{% url 'website:subscribe-free-trial' %}" class="inline-block">
+                <button class="bg-white text-primary-600 hover:bg-gray-100 text-lg px-8 py-4 rounded-full flex items-center justify-center font-semibold transition-colors shadow-lg hover:shadow-xl hover:scale-105">
+                    Start Your 14-Day Free Trial
+                    <i data-lucide="arrow-right" class="ml-3 h-5 w-5"></i>
+                </button>
+            </a>
+            <button class="border border-white text-white hover:bg-white hover:text-primary-600 text-lg px-8 py-4 rounded-full font-semibold transition-colors shadow-lg hover:shadow-xl hover:scale-105">
+                Schedule a Demo
+            </button>
+        </div>
+        <p class="text-sm opacity-80 mt-5">No credit card required • 14-day full access • Setup in minutes</p>
+    </div>
+</section>
+
+<section id="contact" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Get Started Today</h2>
+                <p class="text-xl text-gray-600">
+                    Fill out the form below to start your free trial or schedule a personalized demo
+                </p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Start Your Free Trial</h3>
+                    <p class="text-gray-500 mb-7 text-sm">Get full access to webmetro ERP for 14 days - no credit card required.</p>
+                    <form class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1.5">First Name</label>
+                                <input type="text" id="firstName" placeholder="John" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 text-gray-800">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1.5">Last Name</label>
+                                <input type="text" id="lastName" placeholder="Doe" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 text-gray-800">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="businessName" class="block text-sm font-medium text-gray-700 mb-1.5">Business Name</label>
+                            <input type="text" id="businessName" placeholder="Your Business Name" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 text-gray-800">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+                            <input type="email" id="email" placeholder="john@business.com" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 text-gray-800">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+254 7XX XXX XXX" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 text-gray-800">
+                        </div>
+                        <div>
+                           <label for="industry" class="block text-sm font-medium text-gray-700 mb-1.5">Industry Type</label>
+                           <select id="industry" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 text-gray-800 bg-white">
+                               <option disabled selected value="">Select your industry</option>
+                               <option value="agro-dealer">Agro-Dealer</option>
+                               <option value="pharmacy">Pharmacy</option>
+                               <option value="veterinary">Veterinary Supplier</option>
+                               <option value="agrovet">Agrovet</option>
+                               <option value="wholesale">Wholesale Distributor</option>
+                               <option value="supermarket">Supermarket</option>
+                               <option value="other">Other</option>
+                           </select>
+                        </div>
+                         <div>
+                           <label for="country" class="block text-sm font-medium text-gray-700 mb-1.5">Country</label>
+                           <select id="country" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 text-gray-800 bg-white">
+                               <option disabled selected value="">Select your country</option>
+                               <option value="kenya">Kenya</option>
+                               <option value="uganda">Uganda</option>
+                               <option value="tanzania">Tanzania</option>
+                               <option value="rwanda">Rwanda</option>
+                               <option value="zambia">Zambia</option>
+                               <option value="nigeria">Nigeria</option>
+                               <option value="other">Other African Country</option>
+                           </select>
+                        </div>
+                        <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3.5 px-4 rounded-full transition-colors shadow-md hover:shadow-lg text-lg">Start Free Trial</button>
+                    </form>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                        <h3 class="text-2xl font-bold mb-5 text-gray-900">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <i data-lucide="map-pin" class="h-6 w-6 text-primary-600 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <div class="font-semibold text-gray-900 text-lg">Nairobi Office</div>
+                                    <div class="text-base text-gray-600">Westlands, Nairobi, Kenya</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <i data-lucide="phone" class="h-6 w-6 text-primary-600 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <div class="font-semibold text-gray-900 text-lg">+254 700 000 000</div>
+                                    <div class="text-base text-gray-600">Mon-Fri 8AM-6PM EAT</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <i data-lucide="mail" class="h-6 w-6 text-primary-600 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <div class="font-semibold text-gray-900 text-lg">hello@webmetro.co.ke</div>
+                                    <div class="text-base text-gray-600">We'll respond within 24 hours</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-blue-50 to-accent-50 rounded-xl shadow-lg p-8 border border-primary-100">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Need Help Choosing the Right Plan?</h3>
+                        <p class="text-gray-700 mb-6 text-base">
+                            Our team of ERP specialists can help you determine the best solution for your unique business needs. Get a personalized recommendation.
+                        </p>
+                        <button class="bg-white border border-gray-300 text-primary-600 py-3 px-6 rounded-full hover:bg-gray-100 font-semibold transition-colors shadow-md hover:shadow-lg">
+                            Schedule a Consultation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Navbar/Menu Script (from your original code) ---
+        const triggers = document.querySelectorAll('[data-menu-trigger]');
+        const panels = document.querySelectorAll('[data-menu-panel]');
+        const body = document.body;
+
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPanelId = trigger.getAttribute('data-menu-trigger');
+                const targetPanel = document.getElementById(targetPanelId);
+                const isPanelActive = targetPanel.classList.contains('active');
+                const chevron = trigger.querySelector('[data-lucide="chevron-down"]');
+
+                panels.forEach(p => {
+                    if (p.id !== targetPanelId) {
+                        p.classList.remove('active');
+                    }
+                });
+                 triggers.forEach(t => {
+                    const otherChevron = t.querySelector('[data-lucide="chevron-down"]');
+                    if (t !== trigger && otherChevron) {
+                        otherChevron.style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                if (isPanelActive) {
+                    targetPanel.classList.remove('active');
+                    if(chevron) chevron.style.transform = 'rotate(0deg)';
+                } else {
+                    targetPanel.classList.add('active');
+                    if(chevron) chevron.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        body.addEventListener('click', (e) => {
+            if (!e.target.closest('[data-menu-panel]') && !e.target.closest('[data-menu-trigger]')) {
+                panels.forEach(p => {
+                    p.classList.remove('active');
+                });
+                 triggers.forEach(t => {
+                    const chevron = t.querySelector('[data-lucide="chevron-down"]');
+                    if (chevron) {
+                        chevron.style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
+        });
+
+        // --- Intersection Observer for Fade-in-Section ---
+        const animatedSections = document.querySelectorAll('.fade-in-section');
+        const observerOptions = {
+            root: null, /* viewport as root */
+            threshold: 0.1 /* trigger when 10% of element is visible */
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        };
+
+        const sectionObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+        animatedSections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // --- Lucide Icons initialization (important for all icons to render) ---
+        lucide.createIcons();
+    });
+</script>
+
+{% endblock %}

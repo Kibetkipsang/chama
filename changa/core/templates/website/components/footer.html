@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webmetro ERP - Footer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons (for contact icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+<!-- 
+  Branded Footer Section
+  - Branding Colors Used:
+    - Background: Deep Blue (#1E3A8A) for a strong, professional base.
+    - Text: White and light blue for high contrast and readability.
+    - Links & CTA: Warm Orange (#F97316) for interactive elements and the primary call-to-action.
+-->
+<footer class="bg-[#1E3A8A] text-blue-100" data-aos="fade-up">
+  <div class="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    
+    <!-- Column 1: Brand Info -->
+    <div>
+      <h3 class="text-2xl font-bold text-white mb-3">webmetro ERP</h3>
+      <p class="text-blue-200">Modern ERP for East Africa. Fast, secure, and built for SMEs & corporates.</p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="inline-block bg-blue-200 text-[#1E3A8A] px-2 py-1 rounded-md text-xs font-semibold">Kenya</span>
+        <span class="inline-block bg-blue-200 text-[#1E3A8A] px-2 py-1 rounded-md text-xs font-semibold">Uganda</span>
+        <span class="inline-block bg-blue-200 text-[#1E3A8A] px-2 py-1 rounded-md text-xs font-semibold">Tanzania</span>
+        <span class="inline-block bg-blue-200 text-[#1E3A8A] px-2 py-1 rounded-md text-xs font-semibold">Rwanda</span>
+      </div>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div>
+      <h4 class="text-lg font-semibold text-white mb-3">Links</h4>
+      <ul class="space-y-2">
+        <li><a href="/features/" class="hover:text-orange-400 transition-colors">Features</a></li>
+        <li><a href="/pricing/" class="hover:text-orange-400 transition-colors">Pricing</a></li>
+        <li><a href="/contact/" class="hover:text-orange-400 transition-colors">Contact</a></li>
+        <li><a href="/newsletter/" class="hover:text-orange-400 transition-colors">Newsletter</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Contact Info -->
+    <div>
+      <h4 class="text-lg font-semibold text-white mb-3">Contact</h4>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-center gap-2"><i class="bi bi-whatsapp text-green-400"></i> <a href="https://wa.me/254700000000" class="hover:text-orange-400 transition-colors">WhatsApp Kenya</a></li>
+        <li class="flex items-center gap-2"><i class="bi bi-envelope text-blue-300"></i> <a href="mailto:info@webmetroerp.com" class="hover:text-orange-400 transition-colors">info@webmetroerp.com</a></li>
+        <li class="flex items-center gap-2"><i class="bi bi-geo-alt text-blue-300"></i> Nairobi, Kenya</li>
+        <li class="flex items-center gap-2"><i class="bi bi-geo-alt text-blue-300"></i> Kampala, Uganda</li>
+        <li class="flex items-center gap-2"><i class="bi bi-geo-alt text-blue-300"></i> Dar es Salaam, TZ</li>
+        <li class="flex items-center gap-2"><i class="bi bi-geo-alt text-blue-300"></i> Kigali, Rwanda</li>
+        <li><a href="{% url 'website:lead-capture' %}" class="text-indigo-600 hover:underline font-semibold">Request a Demo / Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Newsletter -->
+    <div>
+      <h4 class="text-lg font-semibold text-white mb-3">Newsletter</h4>
+      <form method="post" action="/newsletter/" class="flex flex-col gap-3">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Your email" class="px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-orange-500 text-white" required>
+        <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg px-3 py-2 transition-colors">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center text-blue-300 py-6 border-t border-blue-800/50 text-sm">
+    &copy; {% now "Y" %} webmetro ERP. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

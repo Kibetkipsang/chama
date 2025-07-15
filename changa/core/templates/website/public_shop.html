@@ -1,0 +1,29 @@
+{% extends 'website/base_site.html' %}
+
+{% block meta %}
+  <title>Shop - {{ company_name|default:'Company' }}</title>
+  <meta name="description" content="Browse our products.">
+{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto py-12">
+  <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Shop</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    {% for product in products %}
+    <div class="bg-white rounded-xl shadow hover:shadow-lg transition flex flex-col items-center p-6">
+      {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-32 h-32 object-cover rounded mb-4">
+      {% else %}
+        <img src="/static/img/placeholder.png" alt="No image" class="w-32 h-32 object-cover rounded mb-4">
+      {% endif %}
+      <div class="font-semibold text-lg text-gray-800 mb-1">{{ product.name }}</div>
+      <div class="text-indigo-600 font-bold text-xl mb-2">{{ product.selling_price }}</div>
+      <form method="post" action="/cart/add/{{ product.pk }}/" class="w-full">
+        {% csrf_token %}
+        <button type="submit" class="w-full px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">Add to Cart</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %} 

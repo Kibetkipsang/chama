@@ -1,0 +1,51 @@
+{% extends 'website/base.html' %}
+{% block title %}Pricing | webmetro SaaS ERP{% endblock %}
+{% block content %}
+<section class="bg-gradient-to-br from-[#8c52ff] via-[#5e17eb] to-[#0cc0df] py-16 px-4 text-center text-white rounded-b-3xl shadow-lg mb-12">
+  <h1 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">Transparent, Flexible Pricing</h1>
+  <p class="max-w-2xl mx-auto text-lg md:text-xl mb-4 font-medium">Choose a plan that fits your business. Region-aware pricing for Kenya, Uganda, Rwanda, Tanzania.</p>
+  <div class="text-sm text-white/80">No hidden fees. Cancel anytime.</div>
+</section>
+<section class="max-w-6xl mx-auto py-8 px-4">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Startup Plan -->
+    <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-2 border-[#8c52ff]/20">
+      <h3 class="text-xl font-bold text-[#8c52ff] mb-2">Startup</h3>
+      <div class="text-4xl font-extrabold text-[#5e17eb] mb-2">$19<span class="text-lg font-normal">/mo</span></div>
+      <ul class="mb-6 text-gray-600 space-y-2 text-center">
+        <li>Up to 5 users</li>
+        <li>Inventory, Sales, CRM</li>
+        <li>Email Support</li>
+      </ul>
+      <a href="{% url 'website:subscribe-free-trial' %}" class="px-6 py-2 rounded-lg bg-[#5e17eb] text-white font-bold shadow hover:bg-[#8c52ff] transition">Start Free Trial</a>
+      <div class="text-xs text-gray-400 mt-2">Region-aware pricing available</div>
+    </div>
+    <!-- SME Plan -->
+    <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-4 border-[#5e17eb] scale-105 z-10">
+      <h3 class="text-xl font-bold text-[#5e17eb] mb-2">SME</h3>
+      <div class="text-4xl font-extrabold text-[#8c52ff] mb-2">$49<span class="text-lg font-normal">/mo</span></div>
+      <ul class="mb-6 text-gray-600 space-y-2 text-center">
+        <li>Up to 25 users</li>
+        <li>All modules</li>
+        <li>Priority Support</li>
+      </ul>
+      <a href="{% url 'website:subscribe-free-trial' %}" class="px-6 py-2 rounded-lg bg-[#8c52ff] text-white font-bold shadow hover:bg-[#5e17eb] transition">Start Free Trial</a>
+      <div class="text-xs text-gray-400 mt-2">Most popular in Kenya & Uganda</div>
+    </div>
+    <!-- Corporate Plan -->
+    <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-2 border-[#0cc0df]/20">
+      <h3 class="text-xl font-bold text-[#0cc0df] mb-2">Corporate</h3>
+      <div class="text-4xl font-extrabold text-[#0cc0df] mb-2">Custom</div>
+      <ul class="mb-6 text-gray-600 space-y-2 text-center">
+        <li>Unlimited users</li>
+        <li>Custom integrations</li>
+        <li>Dedicated manager</li>
+        <li>24/7 support</li>
+      </ul>
+      <a href="#region" class="px-6 py-2 rounded-lg bg-[#0cc0df] text-white font-bold shadow hover:bg-[#5e17eb] transition">Contact Sales</a>
+      <div class="text-xs text-gray-400 mt-2">Tailored for large enterprises</div>
+    </div>
+  </div>
+</section>
+{% include 'website/public_footer.html' %}
+{% endblock %} 

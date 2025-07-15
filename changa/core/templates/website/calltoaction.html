@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webmetro ERP - Social Proof</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+<!-- 
+  Social Proof Section (Django Template)
+  - Branding Colors Used:
+    - Headline: Deep Blue (#1E3A8A).
+    - Subtitle, CTA, and Checkmarks: Warm Orange (#F97316).
+  - Layout:
+    - A responsive two-column layout.
+    - Right column features an autoplaying, looping video that covers the entire space.
+-->
+<section class="bg-slate-50 py-20 lg:py-28">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            <!-- Left Column: Text Content -->
+            <div class="text-center lg:text-left">
+                <!-- Subtitle -->
+                <p class="font-semibold text-orange-500 uppercase tracking-wider">
+                    Social Proof #1
+                </p>
+
+                <!-- Headline -->
+                <h2 class="mt-4 text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight">
+                    Digitize Your Shop in Under a Week
+                </h2>
+
+                <!-- Description -->
+                <p class="mt-6 text-lg text-gray-700 leading-8">
+                    Stop running blind. Get full control of stock, sales, and compliance with a simple setup — no training required.
+                </p>
+
+                <!-- Checklist -->
+                <ul class="mt-8 space-y-4 text-left inline-block">
+                    <li class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-800 text-lg">Digitize Your Entire Business Fast</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-800 text-lg">Real-Time Visibility into Sales & Stock</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-800 text-lg">ETIMS Compliance Made Effortless</span>
+                    </li>
+                </ul>
+                
+                <!-- CTA Button -->
+                <div class="mt-10">
+                    <a href="#" class="inline-block bg-orange-500 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        Start Your Free Trial
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500 uppercase tracking-wider">
+                        Reduce FUDs (Fear, Uncertainty, Doubts)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Autoplaying Video -->
+            <div class="w-full h-full rounded-2xl shadow-xl overflow-hidden">
+                <video 
+                    class="w-full h-full object-cover" 
+                    src="{% static 'videos/calltoaction.mp4' %}" 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline
+                    aria-label="A demo video of the webmetro ERP dashboard in action.">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

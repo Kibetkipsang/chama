@@ -5,45 +5,94 @@
 
 {% block content %}
 <!-- HERO SECTION -->
-<section class="min-h-screen bg-gradient-to-b from-green-50 to-white flex flex-col justify-center items-center text-center px-4">
-  <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Changa</h1>
-  <p class="text-xl md:text-2xl mb-6 max-w-xl">
-    Empowering Kenyan Chamas with smart savings, loans, and collaboration tools.
-  </p>
-  <div class="flex flex-col md:flex-row gap-4">
-    <a href="{% url 'signup' %}" class="bg-green-600 text-white px-6 py-3 rounded-xl text-lg hover:bg-green-700 transition">
-      Create Account
-    </a>
-    <a href="{% url 'login' %}" class="border border-green-600 text-green-600 px-6 py-3 rounded-xl text-lg hover:bg-green-50 transition">
-      Login
-    </a>
+<section class="min-h-screen bg-gradient-to-b from-green-100 via-white to-white flex items-center justify-center text-center px-4">
+  <div class="max-w-3xl">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+      Manage Your Chama Smarter with <span class="text-green-600">Changa</span>
+    </h1>
+    <p class="text-lg md:text-2xl text-gray-700 mb-10">
+      A powerful platform for savings, loans, meetings, and M-Pesa-powered chama management.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="{% url 'signup' %}" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl text-lg font-semibold shadow-md transition">
+        Get Started
+      </a>
+      <a href="{% url 'login' %}" class="border border-green-600 text-green-600 px-6 py-3 rounded-xl text-lg font-semibold hover:bg-green-50 transition shadow-sm">
+        Log In
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- FEATURES SECTION -->
-<section class="py-16 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-semibold text-center mb-12">Why Use Changa?</h2>
-    <div class="grid md:grid-cols-3 gap-10 text-center">
-      <div class="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
-        <h3 class="text-xl font-bold mb-2">Manage Chamas Easily</h3>
+<section class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-14">
+      Everything Your Chama Needs
+    </h2>
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- Feature Card -->
+      <div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-lg transition">
+        <div class="flex justify-center mb-4">
+          <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8 17l4 4 4-4m0-10l-4-4-4 4"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Effortless Chama Management</h3>
         <p class="text-sm text-gray-600">
-          Track contributions, set goals, assign roles, and manage your chama with ease.
+          Simplify how you track savings, assign roles, run votes, and manage your group finances.
         </p>
       </div>
-      <div class="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
-        <h3 class="text-xl font-bold mb-2">Loan Requests & Voting</h3>
+
+      <!-- Feature Card -->
+      <div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-lg transition">
+        <div class="flex justify-center mb-4">
+          <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M17 9V7a4 4 0 00-8 0v2m-2 4h12v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Loans + Voting System</h3>
         <p class="text-sm text-gray-600">
-          Request loans, track repayments, and vote on decisions in one place.
+          Members can apply for loans, vote on approvals, and monitor repayments securely.
         </p>
       </div>
-      <div class="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
-        <h3 class="text-xl font-bold mb-2">M-Pesa & SMS Integrated</h3>
+
+      <!-- Feature Card -->
+      <div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-lg transition">
+        <div class="flex justify-center mb-4">
+          <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 10h11M9 21V3M17 16l4-4m0 0l-4-4m4 4H11"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">M-Pesa + SMS Integration</h3>
         <p class="text-sm text-gray-600">
-          Collect savings via M-Pesa and stay updated with SMS alerts.
+          Receive payments via M-Pesa and keep members in the loop through instant SMS alerts.
         </p>
       </div>
+
     </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="py-20 bg-green-600 text-white text-center">
+  <div class="max-w-2xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+      Ready to Transform Your Chama?
+    </h2>
+    <p class="text-lg mb-8">
+      Join hundreds of Kenyan groups using Changa to grow their savings and make smarter decisions.
+    </p>
+    <a href="{% url 'signup' %}" class="bg-white text-green-700 px-8 py-3 rounded-xl text-lg font-semibold shadow hover:bg-green-100 transition">
+      Create Free Account
+    </a>
   </div>
 </section>
 {% endblock %}

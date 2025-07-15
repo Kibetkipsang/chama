@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webmetro ERP - Customer Stories</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+<!-- 
+  Testimonials Section - "How Real Businesses Are Winning"
+  - Branding Colors Used:
+    - Headline: Deep Blue (#1E3A8A) for a professional look.
+    - CTA Button: Warm Orange (#F97316) for high visibility.
+  - Layout:
+    - A three-column grid for the testimonial cards that stacks on mobile.
+    - Each card has an image with a text overlay for the quote.
+    - Business name and owner details are placed below the image for clarity.
+-->
+<section class="bg-white py-20 lg:py-28">
+    <div class="container mx-auto px-4">
+        <!-- Section Title -->
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight">
+                How Real Businesses Are Winning with webmetro
+            </h2>
+        </div>
+
+        <!-- Testimonial Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            
+            <!-- Card 1: Pharmacy/Chemist -->
+            <div class="bg-slate-50 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                <div class="relative">
+                    <!-- Image -->
+                    <img class="w-full h-80 object-cover"  src="{% static 'images/pharmacy.jpg' %}" alt="A bustling pharmacy using webmetro ERP on their counter.">
+                    <!-- Text Overlay with Gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <p class="text-white text-lg font-medium">
+                            "Before webmetro, I'd spend hours calculating stock and receipts. Now, everything's automated—and ETIMS sorted!"
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-xl font-bold text-gray-900">Jirani Pharmacy</p>
+                    <p class="text-gray-600">Kamau N., Owner</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Agro-dealer/Grocer -->
+            <div class="bg-slate-50 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                <div class="relative">
+                    <!-- Image -->
+                    <img class="w-full h-80 object-cover"   src="{% static 'images/agrovet.jpg' %}" alt="An agro-dealer in their shop with neatly organized shelves.">
+                    <!-- Text Overlay with Gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <p class="text-white text-lg font-medium">
+                           "I couldn't even tell what was selling until the end of the month. Now I get alerts in real-time—and customers are happy because the shelves stay full."
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-xl font-bold text-gray-900">Zawadi Farm Supplies</p>
+                    <p class="text-gray-600">Susan W., Manager</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Hardware/Retailer -->
+            <div class="bg-slate-50 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                 <div class="relative">
+                    <!-- Image -->
+                    <img class="w-full h-80 object-cover"  src="{% static 'images/hardware.jpg' %}"alt="A hardware store owner smiling at the counter.">
+                    <!-- Text Overlay with Gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <p class="text-white text-lg font-medium">
+                            "Managing suppliers and purchase orders was a nightmare. webmetro simplified our entire procurement process in less than a week."
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-xl font-bold text-gray-900">Ujenzi Hardware</p>
+                    <p class="text-gray-600">David O., Proprietor</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Main Call to Action Button -->
+        <div class="mt-20 text-center">
+            <a href="#" class="inline-block bg-orange-500 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                Join These Businesses & Start Your Free Trial
+            </a>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

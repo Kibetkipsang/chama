@@ -1,0 +1,45 @@
+<section id="region" class="max-w-6xl mx-auto py-16 px-4">
+  <h2 class="text-3xl font-bold text-[#5e17eb] mb-8 text-center">Regionally Tailored ERP</h2>
+  <div class="flex justify-center mb-6">
+    <ul class="flex gap-4" id="region-tabs">
+      <li><button class="px-4 py-2 rounded-t bg-[#8c52ff] text-white font-bold" onclick="showRegion('kenya')">Kenya</button></li>
+      <li><button class="px-4 py-2 rounded-t bg-[#0cc0df] text-white font-bold" onclick="showRegion('tanzania')">Tanzania</button></li>
+      <li><button class="px-4 py-2 rounded-t bg-[#5e17eb] text-white font-bold" onclick="showRegion('uganda')">Uganda</button></li>
+      <li><button class="px-4 py-2 rounded-t bg-[#ff69b4] text-white font-bold" onclick="showRegion('rwanda')">Rwanda</button></li>
+    </ul>
+  </div>
+  <div id="region-content-kenya" class="region-content">
+    <div class="bg-white rounded-xl shadow p-8 text-center">
+      <span class="inline-block text-4xl mb-2">🇰🇪</span>
+      <h3 class="text-xl font-bold mb-2">Tailored ERP for SMEs in Kenya</h3>
+      <p class="text-gray-600">Local tax compliance, KRA integration, and mobile money support.</p>
+    </div>
+  </div>
+  <div id="region-content-tanzania" class="region-content hidden">
+    <div class="bg-white rounded-xl shadow p-8 text-center">
+      <span class="inline-block text-4xl mb-2">🇹🇿</span>
+      <h3 class="text-xl font-bold mb-2">Seamless Operations in Tanzania</h3>
+      <p class="text-gray-600">TRA compliance, Swahili support, and local payroll features.</p>
+    </div>
+  </div>
+  <div id="region-content-uganda" class="region-content hidden">
+    <div class="bg-white rounded-xl shadow p-8 text-center">
+      <span class="inline-block text-4xl mb-2">🇺🇬</span>
+      <h3 class="text-xl font-bold mb-2">Empowering Ugandan Businesses</h3>
+      <p class="text-gray-600">URA compliance, local banking, and SME-focused modules.</p>
+    </div>
+  </div>
+  <div id="region-content-rwanda" class="region-content hidden">
+    <div class="bg-white rounded-xl shadow p-8 text-center">
+      <span class="inline-block text-4xl mb-2">🇷🇼</span>
+      <h3 class="text-xl font-bold mb-2">Seamless Compliance in Rwanda</h3>
+      <p class="text-gray-600">RRA integration, French/Kinyarwanda support, and e-invoicing.</p>
+    </div>
+  </div>
+  <script>
+    function showRegion(region) {
+      document.querySelectorAll('.region-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById('region-content-' + region).classList.remove('hidden');
+    }
+  </script>
+</section> 

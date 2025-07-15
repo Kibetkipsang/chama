@@ -1,0 +1,9 @@
+<nav>
+  <a href="{% url 'website:dashboard' %}" class="flex items-center space-x-2 px-2 py-1 rounded hover:bg-teal-100 {% if request.resolver_match.url_name == 'dashboard' %}bg-teal-200 font-bold text-teal-800{% endif %}"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+  <a href="{% url 'website:page-list' %}" class="flex items-center space-x-2 px-2 py-1 rounded hover:bg-teal-100 {% if 'page' in request.resolver_match.url_name %}bg-teal-200 font-bold text-teal-800{% endif %}"><i class="bi bi-file-text"></i><span>Pages</span></a>
+  <a href="{% url 'website:post-list' %}" class="flex items-center space-x-2 px-2 py-1 rounded hover:bg-teal-100 {% if 'post' in request.resolver_match.url_name %}bg-teal-200 font-bold text-teal-800{% endif %}"><i class="bi bi-pencil-square"></i><span>Blog Posts</span></a>
+  <a href="{% url 'website:category-list' %}" class="flex items-center space-x-2 px-2 py-1 rounded hover:bg-teal-100 {% if 'category' in request.resolver_match.url_name %}bg-teal-200 font-bold text-teal-800{% endif %}"><i class="bi bi-folder"></i><span>Categories</span></a>
+  <a href="{% url 'website:media-list' %}" class="flex items-center space-x-2 px-2 py-1 rounded hover:bg-teal-100 {% if 'media' in request.resolver_match.url_name %}bg-teal-200 font-bold text-teal-800{% endif %}"><i class="bi bi-image"></i><span>Media Library</span></a>
+  <a href="{% url 'website:menu-list' %}" class="flex items-center space-x-2 px-2 py-1 rounded hover:bg-teal-100 {% if 'menu' in request.resolver_match.url_name %}bg-teal-200 font-bold text-teal-800{% endif %}"><i class="bi bi-list"></i><span>Menus</span></a>
+  <a href="{% url 'website:website-settings' %}" class="flex items-center space-x-2 px-2 py-1 rounded hover:bg-teal-100 {% if request.resolver_match.url_name == 'website-settings' %}bg-teal-200 font-bold text-teal-800{% endif %}"><i class="bi bi-gear"></i><span>Settings</span></a>
+</nav> 

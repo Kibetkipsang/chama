@@ -1,0 +1,42 @@
+{% extends "website/base.html" %}
+{% block title %}Welcome to webmetro ERP!{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl w-full mx-auto text-center">
+
+        <div class="mx-auto flex items-center justify-center h-24 w-24 rounded-full bg-green-100">
+            <svg class="h-16 w-16 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </div>
+        
+        <div class="mt-8">
+            <h1 class="text-4xl lg:text-5xl font-extrabold text-[#1E3A8A] tracking-tight">
+                You're In! Check Your Email
+            </h1>
+            <p class="mt-4 text-lg text-gray-700 leading-8">
+                Your 14-day free trial has been successfully activated. We've just sent a welcome email to <strong class="text-gray-900">{{ email }}</strong> with your login details and a link to the platform.
+            </p>
+        </div>
+
+        <div class="mt-10 bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+            <h3 class="text-xl font-bold text-[#1E3A8A]">What's Next?</h3>
+            <ol class="mt-4 text-left space-y-3 text-gray-600 list-decimal list-inside">
+                <li><strong>Check your inbox</strong> for an email from <span class="font-semibold text-orange-500">info@webmetroerp.com</span>.</li>
+                <li>Use the <strong>temporary password</strong> provided to log in.</li>
+                <li>Start exploring the platform and digitizing your business!</li>
+            </ol>
+        </div>
+
+        <div class="mt-10">
+            <a href="{% url 'website:website-login' %}" class="inline-block bg-orange-500 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                Go to Login Page
+            </a>
+            <p class="mt-4 text-sm text-gray-500">
+                Didn't receive the email? Please check your spam/junk folder or <a href="{% url 'website:contact' %}" class="font-medium text-[#1E3A8A] hover:text-orange-500">contact our support team</a>.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

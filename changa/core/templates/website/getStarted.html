@@ -1,0 +1,111 @@
+{% extends "website/base.html" %}
+{% block title %}Start Your 14-Day Free Trial - webmetro ERP{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+        <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+
+            <!-- Left Column: Value Proposition -->
+            <div class="bg-[#1E3A8A] text-white p-8 lg:p-12">
+                <h1 class="text-4xl font-extrabold tracking-tight">Ready to Transform Your Business?</h1>
+                <p class="mt-4 text-blue-200 text-lg">
+                    Get full, unrestricted access to webmetro ERP for 14 days. No credit card required, no obligations.
+                </p>
+                <ul class="mt-8 space-y-4">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-orange-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div>
+                            <h4 class="font-semibold">Real-Time Stock & Sales Tracking</h4>
+                            <p class="text-blue-200">Know what's moving and what's not, instantly.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                         <svg class="w-6 h-6 text-orange-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div>
+                            <h4 class="font-semibold">Automated ETIMS Compliance</h4>
+                            <p class="text-blue-200">Generate KRA-compliant invoices with a single click.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                         <svg class="w-6 h-6 text-orange-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div>
+                            <h4 class="font-semibold">Run Your Business Anywhere</h4>
+                            <p class="text-blue-200">Access your dashboard from your computer or mobile phone.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Column: Signup Form -->
+            <div class="p-8 lg:p-12">
+                <h2 class="text-2xl font-bold text-gray-900">Create Your Free Account</h2>
+
+                <!-- Django Messages for Success/Error -->
+                {% if messages %}
+                    <div class="mt-4">
+                        {% for message in messages %}
+                            <div class="p-4 rounded-md {% if message.tags == 'success' %} bg-green-100 text-green-800 {% else %} bg-red-100 text-red-800 {% endif %}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <form method="post" action="{% url 'website:subscribe-free-trial' %}" class="mt-6 space-y-5">
+                    {% csrf_token %}
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label for="firstName" class="block text-sm font-medium text-gray-700">First Name</label>
+                            <input type="text" name="firstName" id="firstName" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                        </div>
+                        <div>
+                            <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name</label>
+                            <input type="text" name="lastName" id="lastName" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="businessName" class="block text-sm font-medium text-gray-700">Business Name</label>
+                        <input type="text" name="businessName" id="businessName" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" name="email" id="email" required autocomplete="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+
+                     <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input type="tel" name="phone" id="phone" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+
+                    <div>
+                        <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                        <select id="country" name="country" class="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                            <option value="KE">Kenya</option>
+                            <option value="UG">Uganda</option>
+                            <option value="TZ">Tanzania</option>
+                            <option value="RW">Rwanda</option>
+                            <option value="NG">Nigeria</option>
+                            <option value="ZM">Zambia</option>
+                            <option value="OT">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-bold text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-colors">
+                            Start My 14-Day Free Trial
+                        </button>
+                    </div>
+
+                    <p class="text-xs text-gray-500 text-center">
+                        By signing up, you agree to our <a href="#" class="font-medium text-[#1E3A8A] hover:text-orange-500">Terms of Service</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
